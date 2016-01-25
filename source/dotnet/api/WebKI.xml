@@ -2189,7 +2189,10 @@
     <HelpKINode Title="IProviderAccountResult.IsNewAccount Property " Url="html/P_Stormpath_SDK_Provider_IProviderAccountResult_IsNewAccount.htm" />
   </HelpKINode>
   <HelpKINode Title="IssuedAt property" Url="html/P_Stormpath_SDK_Jwt_IJwtClaims_IssuedAt.htm" />
-  <HelpKINode Title="Issuer property" Url="html/P_Stormpath_SDK_Jwt_IJwtClaims_Issuer.htm" />
+  <HelpKINode Title="Issuer property">
+    <HelpKINode Title="IJwtClaims.Issuer Property " Url="html/P_Stormpath_SDK_Jwt_IJwtClaims_Issuer.htm" />
+    <HelpKINode Title="JwtLocalValidationOptions.Issuer Property " Url="html/P_Stormpath_SDK_Oauth_JwtLocalValidationOptions_Issuer.htm" />
+  </HelpKINode>
   <HelpKINode Title="IsSynchronousSupported property">
     <HelpKINode Title="ICacheProvider.IsSynchronousSupported Property " Url="html/P_Stormpath_SDK_Cache_ICacheProvider_IsSynchronousSupported.htm" />
     <HelpKINode Title="IHttpClient.IsSynchronousSupported Property " Url="html/P_Stormpath_SDK_Http_IHttpClient_IsSynchronousSupported.htm" />
@@ -2272,6 +2275,15 @@
     <HelpKINode Title="IJwtAuthenticationRequest.Jwt Property " Url="html/P_Stormpath_SDK_Oauth_IJwtAuthenticationRequest_Jwt.htm" />
     <HelpKINode Title="IRefreshToken.Jwt Property " Url="html/P_Stormpath_SDK_Oauth_IRefreshToken_Jwt.htm" />
   </HelpKINode>
+  <HelpKINode Title="JwtLocalValidationOptions class">
+    <HelpKINode Title="JwtLocalValidationOptions Class" Url="html/T_Stormpath_SDK_Oauth_JwtLocalValidationOptions.htm" />
+    <HelpKINode Title="about JwtLocalValidationOptions class" Url="html/T_Stormpath_SDK_Oauth_JwtLocalValidationOptions.htm" />
+    <HelpKINode Title="constructor" Url="html/M_Stormpath_SDK_Oauth_JwtLocalValidationOptions__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_Stormpath_SDK_Oauth_JwtLocalValidationOptions.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_Stormpath_SDK_Oauth_JwtLocalValidationOptions.htm" />
+  </HelpKINode>
+  <HelpKINode Title="JwtLocalValidationOptions.Issuer property" Url="html/P_Stormpath_SDK_Oauth_JwtLocalValidationOptions_Issuer.htm" />
+  <HelpKINode Title="JwtLocalValidationOptions.JwtLocalValidationOptions constructor" Url="html/M_Stormpath_SDK_Oauth_JwtLocalValidationOptions__ctor.htm" />
   <HelpKINode Title="Jwts class">
     <HelpKINode Title="Jwts Class" Url="html/T_Stormpath_SDK_Jwt_Jwts.htm" />
     <HelpKINode Title="about Jwts class" Url="html/T_Stormpath_SDK_Jwt_Jwts.htm" />
@@ -2893,6 +2905,7 @@
   <HelpKINode Title="Stormpath.SDK.Oauth.IRefreshGrantRequest interface" Url="html/T_Stormpath_SDK_Oauth_IRefreshGrantRequest.htm" />
   <HelpKINode Title="Stormpath.SDK.Oauth.IRefreshGrantRequestBuilder interface" Url="html/T_Stormpath_SDK_Oauth_IRefreshGrantRequestBuilder.htm" />
   <HelpKINode Title="Stormpath.SDK.Oauth.IRefreshToken interface" Url="html/T_Stormpath_SDK_Oauth_IRefreshToken.htm" />
+  <HelpKINode Title="Stormpath.SDK.Oauth.JwtLocalValidationOptions class" Url="html/T_Stormpath_SDK_Oauth_JwtLocalValidationOptions.htm" />
   <HelpKINode Title="Stormpath.SDK.Oauth.OauthRequests class" Url="html/T_Stormpath_SDK_Oauth_OauthRequests.htm" />
   <HelpKINode Title="Stormpath.SDK.Organization namespace" Url="html/N_Stormpath_SDK_Organization.htm" />
   <HelpKINode Title="Stormpath.SDK.Organization.IOrganization interface" Url="html/T_Stormpath_SDK_Organization_IOrganization.htm" />
