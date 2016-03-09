@@ -749,7 +749,7 @@ api_key.save()
 
 <p>All authentication attempts in Stormpath start with the <code>Application</code> object in the SDK.  You will likely have initialized the <code>Application</code> during startup.</p>
 
-<p>The <code>Application</code> object in Java has an <code>authenticateApiRequest</code> method that takes an HTTP request as a parameter.  Using  HTTP authorization headers, Stormpath can understand what type of authentication is occurring (Basic vs Bearer) and can quickly decide if the authentication request is successful or not.  For example, if your API supports both Basic and OAuth 2.0, the Stormpath SDK will take the full request, read the authorization header data and provide the right type of authentication.</p>
+<p>Then you will need to get an instance of <code>ApiRequestAuthenticator</code> to authenticate, you can get this using <code>Applications</code> and pass the application to the <code>apiRequestAuthenticator</code> method <code>Applications.apiRequestAuthenticator(application)</code> once you have this you can authenticate using the HTTP request as a parameter.  Using  HTTP authorization headers, Stormpath can understand what type of authentication is occurring (Basic vs Bearer) and can quickly decide if the authentication request is successful or not.  For example, if your API supports both Basic and OAuth 2.0, the Stormpath SDK will take the full request, read the authorization header data and provide the right type of authentication.</p>
 
 <p>To demonstrate how the SDK works, we&rsquo;ll use an example.  We are building a Stormtrooper API for managing Stormtrooper equipment&mdash; like awesome helmets and blasters.  In order to secure our API, a developer must base64 encode their API Key and Secret and then pass the encoded data in the authorization header.</p>
 
@@ -773,7 +773,7 @@ Host: api.trooperapp.com
 public void getEquipment(HttpServletRequest request, HttpServletResponse response) {
     Application application = client.getResource(applicationRestUrl, Application.class);
 
-    ApiAuthenticationResult result = application.authenticateApiRequest(request);
+    ApiAuthenticationResult result = Applications.apiRequestAuthenticator(application).authenticate(request);
 
     //Get any account properties as needed
     String email = result.getAccount().getEmail();
@@ -864,7 +864,7 @@ public void postOAuthToken(HttpServletRequest request, HttpServletResponse respo
     Application application = client.getResource(applicationRestUrl, Application.class);
 
     //Getting the authentication result
-    AccessTokenResult result = (AccessTokenResult) application.authenticateApiRequest(request);
+    AccessTokenResult result = (AccessTokenResult) Applications.apiRequestAuthenticator(application).authenticate(request);
 
     //Get the token response from the result which includes 
     //information about the Access Token
@@ -936,7 +936,7 @@ Host: api.trooperapp.com
 public void getEquipment(HttpServletRequest request, HttpServletResponse response) {
     Application application = client.getResource(applicationRestUrl, Application.class);
 
-    OauthAuthenticationResult result = (OauthAuthenticationResult) application.authenticateOauthRequest(request).execute();
+    OauthAuthenticationResult result = Applications.oauthRequestAuthenticator(application).authenticate(request);
 
     System.out.println(result.getApiKey());
     System.out.println(result.getAccount());
@@ -1046,7 +1046,7 @@ public void processOAuthTokenRequest(HttpServletRequest request, HttpServletResp
 
     //Authenticate the request with ScopeFactory
     AccessTokenResult result;
-    result = (AccessTokenResult) application.authenticateOauthRequest(request).withScopeFactory(scopeFactory).execute();
+    result = (AccessTokenResult) Applications.oauthRequestAuthenticator(application).using(scopeFactory).authenticate(request);
 
     //Get the token response for an authenticated request
     TokenResponse token = result.getTokenResponse();
@@ -1121,7 +1121,7 @@ public void getEquipment(HttpServletRequest request, HttpServletResponse respons
     
     Application application = client.getResource(applicationRestUrl, Application.class);
 
-    OauthAuthenticationResult result = (OauthAuthenticationResult) application.authenticateOauthRequest(request).execute();
+    OauthAuthenticationResult result = Applications.oauthRequestAuthenticator(application).authenticate(request);
 
     //Checking if the Access Token includes the 'admin' scope
     if(result.getScopes().contains("admin")){
